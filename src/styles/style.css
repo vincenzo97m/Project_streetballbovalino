@@ -1,122 +1,167 @@
 /* Importa il font personalizzato */
 @font-face {
-    font-family: 'Grashrock'; /* Nome del font */
-    src: url('../assets/fonts/Grashrock.ttf') format('truetype'); /* Percorso del font */
+    font-family: 'Grashrock';
+    src: url('../assets/fonts/Grashrock.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
-/* Stile generale per il layout */
-html, body {
-    height: 100%; /* Assicura che l'html e il body occupino tutta l'altezza */
+/* Reset + base */
+* {
     margin: 0;
     padding: 0;
-    overflow: hidden; /* Nasconde lo scroll */
+    box-sizing: border-box;
 }
 
-body {
-    background-image: url('../assets/images/sfondo.jpg'); /* Percorso dell'immagine */
-    background-size: cover; /* Adatta l'immagine allo schermo */
-    background-repeat: no-repeat; /* Evita la ripetizione dell'immagine */
-    background-position: center; /* Centra l'immagine */
-    color: #000; /* Cambia il colore del testo in nero */
-    font-family: Arial, sans-serif; /* Font della pagina */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-/* Stile per il footer */
+.page-wrapper {
+    min-height: 100vh;
+    height: 100vh; /* Occupa sempre tutta la finestra */
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    flex-shrink: 0;
+    min-height: 80px;
+    display: flex;
+    justify-content: center; /* Centra orizzontalmente */
+    align-items: center;     /* Centra verticalmente */
+}
+
+main {
+    flex: 1 0 auto; /* Occupa lo spazio rimanente */
+    min-height: 0;  /* Evita overflow */
+}
+
 footer {
-    background: #000000; /* Sfondo scuro */
-    color: #fff; /* Cambia il colore del testo nel footer in bianco */
+    flex-shrink: 0;
+    min-height: 120px; /* O l'altezza che preferisci */
+    font-family: 'Grashrock', sans-serif;
+}
+
+/* ------------------ MENU ------------------ */
+#menu {
     text-align: center;
-    padding: 0px 0; /* Aggiunge spazio interno */
-    position: fixed; /* Fissa il footer in basso */
-    bottom: 0; /* Posiziona il footer in basso */
-    width: 100%; /* Allarga il footer alla larghezza della pagina */
-    z-index: 10; /* Assicura che il footer sia sopra altri elementi */
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
-/* Stile per il contenuto del footer */
+#menu a {
+    background: none;
+    border: none;
+    color: #000;
+    font-size: clamp(20px, 5vw, 50px);
+    font-family: 'Grashrock', sans-serif;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+    text-decoration: none;
+    padding: 10px 15px;
+    white-space: normal; /* Permette l'andata a capo */
+}
+
+#menu a:hover,
+#menu a:focus {
+    color: #f47d00;
+    transform: scale(1.2);
+    outline: none;
+}
+
+/* Responsive menu */
+@media (max-width: 768px) {
+    #menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #menu a {
+        width: 90%;
+        font-size: 24px;
+    }
+}
+
+/* ------------------ FOOTER ------------------ */
+footer {
+    background: #ff0000;
+    color: #fff;
+    text-align: center;
+    padding: 0px 0;
+    position: static;
+    width: 100%;
+    z-index: 10;
+}
+
 .footer-content {
-    padding-top: 20px;
-    padding-bottom: 10px; /* Aumenta lo spazio interno sotto il copyright */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+    height: 100%;
+    min-height: 120px;
 }
 
-/* Stile per le icone social */
+.footer-content p {
+    font-size: 25px;
+    color: #fff;
+    padding: 10px 0;
+}
+
 .social-icons {
-    display: flex; /* Usa il layout flexbox */
-    align-items: center; /* Allinea verticalmente gli elementi */
-    justify-content: center; /* Centra gli elementi orizzontalmente */
-    gap: 30px; /* Spaziatura tra le icone e il testo */
-    margin-bottom: 20px; /* Aggiunge spazio sotto il contenitore delle icone social */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+    margin-bottom: 0; /* rimuovi il margin-bottom per allineamento verticale */
 }
 
 .social-icons a {
-    color: #fff; /* Colore bianco per le icone */
-    font-size: 24px; /* Dimensione delle icone */
-    text-decoration: none; /* Rimuove la sottolineatura */
-    transition: transform 0.3s ease; /* Animazione al passaggio del mouse */
+    color: #fff;
+    font-size: 2.2rem;
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+    padding: 10px 0;
 }
 
 .social-icons a:hover {
-    transform: scale(1.8); /* Ingrandisce l'icona al passaggio del mouse */
+    transform: scale(1.8);
 }
 
-.social-icons p {
-    margin: 0; /* Rimuove il margine del paragrafo */
-    font-size: 15px; /* Dimensione del testo */
-    color: #fff; /* Colore bianco per il testo */
-}
-/* Stile per il carosello */
-.carousel {
-    display: flex;
-    overflow: hidden; /* Nasconde i loghi fuori dal contenitore */
-    white-space: nowrap; /* Impedisce il ritorno a capo */
-    animation: scroll 20s linear infinite; /* Animazione di scorrimento */
-    height: 150px; /* Aumenta l'altezza per garantire visibilità */
-    align-items: center; /* Centra verticalmente i loghi */
+/* Focus visibile */
+.social-icons a:focus {
+    outline: 2px solid #f47d00;
+    border-radius: 4px;
 }
 
-/* Stile per le immagini nel carosello */
-.carousel img {
-    height: 100%; /* Adatta i loghi all'altezza del carosello */
-    object-fit: contain; /* Adatta i loghi senza distorsioni */
-    max-width: 150px; /* Limita la larghezza dei loghi */
-    margin: 0 20px; /* Aggiunge spazio tra i loghi */
+.copyright {
+    font-family: 'Grashrock';
+    color: #fff;
+    font-size: 6px;
+    text-align: right;
 }
 
-/* Animazione per lo scorrimento */
-@keyframes scroll {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-100%);
-    }
-}
-
-/* Stile per la sezione sponsor */
-#sponsors {
-    margin: 40px 0; /* Aggiunge 40px di spazio sopra e sotto il banner */
-    text-align: center; /* Centra il contenuto */
-    padding: 20px; /* Aggiunge spazio interno */
-    border-radius: 10px; /* Angoli arrotondati per un aspetto migliore */
-}
-
-/* Stile per il banner */
+/* ------------------ CAROSELLO SPONSOR ------------------ */
 .banner {
     height: 100px;
-    background: white;
-    overflow: hidden; /* Nasconde lo scorrimento */
+    background: rgb(0, 98, 255);
+    overflow: hidden;
     position: relative;
-    margin-bottom: 5px; /* Aumenta lo spazio sotto il banner */
 }
 
-/* Stile per la slide degli sponsor */
 .sponsor-slide {
     display: flex;
-    justify-content: center; /* Allinea i loghi al centro della riga */
+    justify-content: center;
     width: fit-content;
-    animation: scroll-left 60s linear infinite; /* Scorrimento infinito */
+    animation: scroll-left 30s linear infinite;
 }
 
 .scroll-wrapper {
@@ -125,13 +170,12 @@ footer {
 }
 
 .sponsor-slide img {
-    height: 70px;
-    padding-top: 20px;
-    margin: 0 25px;
-    object-fit: contain; /* Adatta i loghi senza distorsioni */
+    height: 95px;
+    padding-top: 5px;
+    margin: 0 10px;
+    object-fit: contain;
 }
 
-/* Animazione per lo scorrimento */
 @keyframes scroll-left {
     0% {
         transform: translateX(0);
@@ -141,56 +185,36 @@ footer {
     }
 }
 
-/* Stile per il menu */
-#menu {
-    text-align: center; /* Allinea i bottoni al centro della riga */
-    margin: 20px 0; /* Aggiunge spazio sopra e sotto il menu */
+/* Mobile sponsor images */
+@media (max-width: 768px) {
+    .sponsor-slide img {
+        height: 90px;
+        margin: 0 15px;
+        padding-top: 10px;
+    }
 }
 
-/* Stile per i bottoni */
-#menu button {
-    background: none; /* Rimuove lo sfondo */
-    border: #000; /* Rimuove la cornice */
-    color: #000000; /* Colore bianco per il testo */
-    font-size: 50px; /* Ingrandisce il testo */
-    font-family: 'Grashrock', sans-serif; /* Applica il font Grashrock */
-    cursor: pointer; /* Cambia il cursore al passaggio del mouse */
-    transition: transform 0.3s ease, color 0.3s ease; /* Effetto hover */
-    margin: 10px; /* Spaziatura tra i bottoni */
-    padding: 10px 15px; /* Aggiunge spazio interno per abbellire */
+/* ------------------ INFO CONTAINER ------------------ */
+.info-container {
+    width: 100%;
+    max-width: 700px;
+    background: #09ff0061;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 24px 16px 32px 16px;
+    font-size: 1.1rem;
+    color: #02176b;
+    margin: 0 auto 40px auto;
+    font-family: 'Grashrock', Arial, sans-serif;
 }
 
-/* Effetto hover per i bottoni */
-#menu button:hover {
-    color: #f47d00; /* Cambia leggermente il colore al passaggio del mouse */
-    transform: scale(1.2); /* Ingrandisce il testo al passaggio del mouse */
+.info-container h2 {
+    color: #f47d00;
+    margin-top: 24px;
+    margin-bottom: 10px;
 }
 
-/* CSS */
-.menu {
-  position: relative;
+.info-container ul {
+    margin-left: 20px;
+    margin-bottom: 16px;
 }
-
-.menu-button {
-  display: block;
-}
-
-.menu-dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: white;
-  border: 1px solid #ccc;
-  z-index: 1000;
-}
-
-.menu-dropdown button {
-  display: block;
-  width: 100%;
-}
-
-.menu:hover .menu-dropdown {
-  display: block;
-}
-
