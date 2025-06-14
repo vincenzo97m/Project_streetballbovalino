@@ -1,0 +1,22 @@
+{
+  "name": "streetball-bovalino",
+  "version": "1.0.0",
+  "description": "Website for the 3vs3 Streetball tournament in Bovalino.",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "live-server src",
+    "build": "echo 'Build step not defined'"
+  },
+  "keywords": [
+    "basketball",
+    "tournament",
+    "streetball",
+    "Bovalino"
+  ],
+  "author": "Vincenzo Morabito",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
