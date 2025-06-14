@@ -17,6 +17,8 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    background-image: url('../assets/images/sfondo.jpg');
+    background-size: cover; /* Copre l'intera area */
 }
 
 .page-wrapper {
@@ -47,12 +49,11 @@ footer {
 
 /* ------------------ MENU ------------------ */
 #menu {
-    text-align: center;
-    margin: 20px 0;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    align-items: center;
+    gap: 24px; /* spazio tra le voci */
+    flex-direction: row; /* sempre in riga */
 }
 
 #menu a {
@@ -78,19 +79,23 @@ footer {
 /* Responsive menu */
 @media (max-width: 768px) {
     #menu {
-        flex-direction: column;
-        gap: 10px;
+        flex-direction: row; /* assicura che resti in riga anche su mobile */
+        gap: 1px; /* puoi ridurre lo spazio se serve */
     }
 
     #menu a {
-        width: 90%;
+        width: 30%;
         font-size: 24px;
+    }
+
+    body {
+        background-image: url('../assets/images/storiaInstaScura.JPG'); /* Sfondo diverso per mobile */
     }
 }
 
 /* ------------------ FOOTER ------------------ */
 footer {
-    background: #ff0000;
+    background: rgb(0, 0, 0);
     color: #fff;
     text-align: center;
     padding: 0px 0;
@@ -152,7 +157,7 @@ footer {
 /* ------------------ CAROSELLO SPONSOR ------------------ */
 .banner {
     height: 100px;
-    background: rgb(0, 98, 255);
+    background: rgb(255, 255, 255);
     overflow: hidden;
     position: relative;
 }
@@ -198,23 +203,36 @@ footer {
 .info-container {
     width: 100%;
     max-width: 700px;
-    background: #09ff0061;
     border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.100);
     padding: 24px 16px 32px 16px;
     font-size: 1.1rem;
-    color: #02176b;
+    color: #da0606;
     margin: 0 auto 40px auto;
     font-family: 'Grashrock', Arial, sans-serif;
+    background: #fff;      /* Sfondo bianco opaco */
+    opacity: 0.8;            /* Completamente opaco */
 }
 
 .info-container h2 {
-    color: #f47d00;
+    color: #000000;
     margin-top: 24px;
     margin-bottom: 10px;
+    text-align: left;
+    align-items: center; /* se usi display: flex o grid */
+    justify-content: center; /* se usi display: flex o grid */
 }
 
 .info-container ul {
     margin-left: 20px;
     margin-bottom: 16px;
+    color: rgb(0, 0, 0);
+    display: inline-block;
+    text-align: left; /* opzionale, per mantenere i punti elenco allineati */
+}
+
+.info-container a {
+    margin-left: 20px;
+    margin-bottom: 16px;
+    color: #000000;
 }
