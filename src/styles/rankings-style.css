@@ -11,7 +11,7 @@
 
     body {
         font-family: Arial, sans-serif;
-        background-color: #ddd;
+        background-color: #d8e2bd; /* cambiato da #ddd */
         overflow: auto;
         height: 100vh;
         display: flex;
