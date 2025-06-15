@@ -2,243 +2,75 @@
 <html lang="it">
 
 <head>
-  <meta charset="UTF-8" />
-  <title>STREETB4LL '25</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    @font-face {
-      font-family: 'Grashrock';
-      src: url('../assets/fonts/Grashrock.ttf') format('truetype');
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #ddd;
-      overflow: auto;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .main-container {
-      display: flex;
-      flex: 1;
-      padding: 10px 20px 0 20px;
-      gap: 20px;
-      opacity: 0.80;
-    }
-
-    .calendar {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    h1 {
-      font-family: 'Grashrock', sans-serif;
-      font-size: 80px;
-      text-align: center;
-      margin-bottom: 10px;
-      padding: 50px 0px 25px 0px;
-    }
-
-    .calendar table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 16px;
-    }
-
-    th,
-    td {
-      border: 1px solid #ddd;
-      padding: 6px;
-      text-align: center;
-    }
-
-    th {
-      background-color: #f2f2f2;
-    }
-
-    .banner {
-      height: 130px;
-      background: white;
-      overflow: hidden;
-      /* Importante per nascondere lo scorrimento */
-      position: relative;
-    }
-
-    .sponsor-slide {
-      display: flex;
-      width: fit-content;
-      animation: scroll-left 30s linear infinite;
-    }
-
-    .scroll-wrapper {
-      display: flex;
-      width: max-content;
-    }
-
-    .sponsor-slide img {
-      height: 110px;
-      padding-top: 20px;
-      margin: 0 25px;
-      object-fit: contain;
-    }
-
-    @keyframes liveGlow {
-
-      0%,
-      100% {
-        box-shadow: 0 0 8px 3px rgba(255, 0, 0, 0.7);
-      }
-
-      50% {
-        box-shadow: 0 0 20px 8px rgba(255, 0, 0, 1);
-      }
-    }
-
-    .live-cell {
-      animation: liveGlow 1.5s infinite ease-in-out;
-      /* Mantieni background originale: non lo tocchiamo */
-      color: inherit;
-      /* lascia il colore testo di default */
-      font-weight: bold;
-      border-radius: 6px;
-      padding: 4px 8px;
-      position: relative;
-      z-index: 0;
-      /* assicura stacking */
-    }
-
-
-    @keyframes scroll-left {
-      0% {
-        transform: translateX(0);
-      }
-
-      100% {
-        transform: translateX(-50%);
-      }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Streetball Bovalino Calendario 2025</title>
+  <link rel="stylesheet" href="../styles/calendar-style.css">
+  <link rel="stylesheet" href="../styles/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 </head>
 
 <body>
   <div class="main-container">
     <div class="calendar">
       <h1>Calendario</h1>
-      <div id="calendar-content">
-        <h1>Caricamento calendario ...</h1>
-        
+      <div style="overflow-x:auto; width:100%;">
+        <div id="calendar-content">
+          <h1>Caricamento...</h1>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="banner">
-          <div class="sponsor-slide">
-            <div class="scroll-wrapper">
-              <!-- Sponsor singola sequenza -->
-              <img src="../assets/images/COMUNE.png" alt="Comune" style="margin-left: 20px; margin-right: 150px;" />
-              <img src="../assets/images/1.png" alt="Sponsor 1" />
-              <img src="../assets/images/2.png" alt="Sponsor 2" />
-              <img src="../assets/images/3.png" alt="Sponsor 3" />
-              <img src="../assets/images/4.png" alt="Sponsor 4" />
-              <img src="../assets/images/5.png" alt="Sponsor 5" />
-              <img src="../assets/images/6.png" alt="Sponsor 6" />
-              <img src="../assets/images/7.png" alt="Sponsor 7" />
-              <img src="../assets/images/8.png" alt="Sponsor 8" />
-              <img src="../assets/images/9.png" alt="Sponsor 9" />
-              <img src="../assets/images/10.png" alt="Sponsor 10" />
-              <img src="../assets/images/FIP.png" alt="FIP" style="margin-left: 150px; margin-right: 20px;" />
-
-              <!-- Duplicazione automatica per continuità -->
-              <img src="../assets/images/COMUNE.png" alt="Comune" style="margin-left: 20px; margin-right: 150px;" />
-              <img src="../assets/images/1.png" alt="Sponsor 1" />
-              <img src="../assets/images/2.png" alt="Sponsor 2" />
-              <img src="../assets/images/3.png" alt="Sponsor 3" />
-              <img src="../assets/images/4.png" alt="Sponsor 4" />
-              <img src="../assets/images/5.png" alt="Sponsor 5" />
-              <img src="../assets/images/6.png" alt="Sponsor 6" />
-              <img src="../assets/images/7.png" alt="Sponsor 7" />
-              <img src="../assets/images/8.png" alt="Sponsor 8" />
-              <img src="../assets/images/9.png" alt="Sponsor 9" />
-              <img src="../assets/images/10.png" alt="Sponsor 10" />
-              <img src="../assets/images/FIP.png" alt="FIP" style="margin-left: 150px; margin-right: 20px;" />
-            </div>
-          </div>
+  <footer>
+    <div class="banner">
+      <div class="sponsor-slide">
+        <div class="scroll-wrapper">
+          <img src="../assets/images/COMUNE.png" alt="Comune" />
+          <img src="../assets/images/1.PNG" alt="Sponsor 1" />
+          <img src="../assets/images/2.png" alt="Sponsor 2" />
+          <img src="../assets/images/3.PNG" alt="Sponsor 3" />
+          <img src="../assets/images/4.PNG" alt="Sponsor 4" />
+          <img src="../assets/images/5.PNG" alt="Sponsor 5" />
+          <img src="../assets/images/6.PNG" alt="Sponsor 6" />
+          <img src="../assets/images/7.PNG" alt="Sponsor 7" />
+          <img src="../assets/images/8.PNG" alt="Sponsor 8" />
+          <img src="../assets/images/9.PNG" alt="Sponsor 9" />
+          <img src="../assets/images/10.PNG" alt="Sponsor 10" />
+          <img src="../assets/images/FIP.png" alt="FIP" />
+          <!-- Duplicati -->
+          <img src="../assets/images/COMUNE.png" alt="Comune" />
+          <img src="../assets/images/1.PNG" alt="Sponsor 1" />
+          <img src="../assets/images/2.png" alt="Sponsor 2" />
+          <img src="../assets/images/3.PNG" alt="Sponsor 3" />
+          <img src="../assets/images/4.PNG" alt="Sponsor 4" />
+          <img src="../assets/images/5.PNG" alt="Sponsor 5" />
+          <img src="../assets/images/6.PNG" alt="Sponsor 6" />
+          <img src="../assets/images/7.PNG" alt="Sponsor 7" />
+          <img src="../assets/images/8.PNG" alt="Sponsor 8" />
+          <img src="../assets/images/9.PNG" alt="Sponsor 9" />
+          <img src="../assets/images/10.PNG" alt="Sponsor 10" />
+          <img src="../assets/images/FIP.png" alt="FIP" />
         </div>
-
-
-
-  <script>
-    async function fetchCSV(url) {
-      const response = await fetch(url);
-      const text = await response.text();
-      return text.trim().split("\n").map(row => row.split(","));
-    }
-
-    function renderCalendarTable(data, containerId) {
-      const container = document.getElementById(containerId);
-      const table = document.createElement("table");
-
-      const thead = document.createElement("thead");
-      const headerRow = document.createElement("tr");
-      for (let i = 0; i < 3; i++) {
-        const th = document.createElement("th");
-        th.textContent = data[0][i];
-        headerRow.appendChild(th);
-      }
-      thead.appendChild(headerRow);
-      table.appendChild(thead);
-
-      const tbody = document.createElement("tbody");
-      data.slice(1).forEach(row => {
-        const tr = document.createElement("tr");
-
-        // Colonna 0: orario
-        const td0 = document.createElement("td");
-        td0.textContent = row[0];
-        td0.style.backgroundColor = "#fffbcc";
-        tr.appendChild(td0);
-
-        // Colonna 1: squadra 1
-        const td1 = document.createElement("td");
-        td1.textContent = row[1];
-        if (row[3]) td1.style.backgroundColor = row[3];
-        if (row[5] && row[5].toUpperCase().includes("IN CORSO")) {
-          td1.classList.add("live-cell");
-        }
-        tr.appendChild(td1);
-
-        // Colonna 2: squadra 2
-        const td2 = document.createElement("td");
-        td2.textContent = row[2];
-        if (row[4]) td2.style.backgroundColor = row[4];
-        if (row[6] && row[6].toUpperCase().includes("IN CORSO")) {
-          td2.classList.add("live-cell");
-        }
-        tr.appendChild(td2);
-
-        tbody.appendChild(tr);
-      });
-
-      table.appendChild(tbody);
-      container.innerHTML = "";
-      container.appendChild(table);
-    }
-
-    const calendarioURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRRDEiXWct3GxRhLnruPZ85qqCQw03mMqjMopHlfh4oUS1DE_oBlJbAFIFoD90lAi7uAVxHizkpewS0/pub?gid=0&single=true&output=csv";
-
-    window.addEventListener("DOMContentLoaded", async () => {
-      const calendarioData = await fetchCSV(calendarioURL);
-      renderCalendarTable(calendarioData, "calendar-content");
-    });
-  </script>
+      </div>
+    </div>
+    <div class="footer-content">
+      <div class="social-icons">
+        <a href="https://www.instagram.com/streetballbovalino/" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/streetballbovalino/" target="_blank" aria-label="Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </div>
+      <div class="credits">
+        <p>&copy; 2025 Streetball Bovalino</p>
+      </div>
+    </div>
+  </footer>
+  <script src="../scripts/calendar.js"></script>
 </body>
 
 </html>

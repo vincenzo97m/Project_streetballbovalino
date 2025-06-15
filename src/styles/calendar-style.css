@@ -1,0 +1,177 @@
+* {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    @font-face {
+        font-family: 'Grashrock';
+        src: url('../assets/fonts/Grashrock.ttf') format('truetype');
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #ddd;
+        overflow: auto;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main-container {
+        display: flex;
+        flex: 1;
+        padding: 10px 20px 0 20px;
+        gap: 20px;
+        opacity: 0.80;
+    }
+
+    .calendar {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    h1 {
+        font-family: 'Grashrock', sans-serif;
+        font-size: 80px;
+        text-align: center;
+        margin-bottom: 10px;
+        padding: 50px 0px 25px 0px;
+    }
+
+    .calendar table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 16px;
+    }
+
+    th,
+    td {
+        border: 1px solid #ddd;
+        padding: 6px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    .banner {
+        height: 130px;
+        background: #fff;
+        overflow: hidden;
+        /* Importante per nascondere lo scorrimento */
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sponsor-slide {
+        display: flex;
+        width: fit-content;
+        animation: scroll-left 30s linear infinite;
+    }
+
+    .scroll-wrapper {
+        display: flex;
+        width: max-content;
+    }
+
+    .sponsor-slide img {
+        height: 40px;
+        margin: 0 2px;
+        object-fit: contain;
+        /* RIMUOVI: background, border, border-radius, box-shadow, display, padding-top */
+    }
+
+    @keyframes liveGlow {
+
+        0%,
+        100% {
+            box-shadow: 0 0 8px 3px rgba(255, 0, 0, 0.7);
+        }
+
+        50% {
+            box-shadow: 0 0 20px 8px rgba(255, 0, 0, 1);
+        }
+    }
+
+    .live-cell {
+        animation: liveGlow 1.5s infinite ease-in-out;
+        /* Mantieni background originale: non lo tocchiamo */
+        color: inherit;
+        /* lascia il colore testo di default */
+        font-weight: bold;
+        border-radius: 6px;
+        padding: 4px 8px;
+        position: relative;
+        z-index: 0;
+        /* assicura stacking */
+    }
+
+
+    @keyframes scroll-left {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    @media (max-width: 900px) {
+        h1 {
+            font-size: 2.8rem;
+            padding: 30px 0 15px 0;
+        }
+        .main-container {
+            flex-direction: column;
+            padding: 6px 4px 0 4px;
+            gap: 10px;
+        }
+        .calendar {
+            width: 100%;
+        }
+        .calendar table {
+            font-size: 14px;
+            min-width: 500px;
+        }
+        .banner {
+            height: 80px;
+        }
+        .sponsor-slide img {
+            height: 28px;
+            margin: 0 1px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        h1 {
+            font-size: 2.2rem;
+            padding: 18px 0 10px 0;
+        }
+        .main-container {
+            padding: 2px 0 0 0;
+            gap: 4px;
+        }
+        .calendar table {
+            font-size: 12px;
+            min-width: 350px;
+        }
+        .banner {
+            height: 50px;
+        }
+        .sponsor-slide img {
+            height: 16px;
+            margin: 0 1px;
+        }
+    }
+
+    /* Rendi scrollabile la tabella su schermi piccoli */
+    .calendar {
+        overflow-x: auto;
+        width: 100%;
+    }

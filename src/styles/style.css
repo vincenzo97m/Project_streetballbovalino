@@ -17,13 +17,11 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-image: url('../assets/images/sfondo.jpg');
-    background-size: cover; /* Copre l'intera area */
 }
 
 .page-wrapper {
     min-height: 100vh;
-    height: 100vh; /* Occupa sempre tutta la finestra */
+    height: auto; /* Cambia da 100vh a auto */
     display: flex;
     flex-direction: column;
 }
@@ -34,83 +32,225 @@ header {
     display: flex;
     justify-content: center; /* Centra orizzontalmente */
     align-items: center;     /* Centra verticalmente */
+    background: #000; /* header nero */
 }
 
 main {
-    flex: 1 0 auto; /* Occupa lo spazio rimanente */
+    background: url('../assets/images/sfondo.jpg') center/cover no-repeat;
     min-height: 0;  /* Evita overflow */
+    flex: 1 0 auto; /* Permette a main di occupare lo spazio rimanente */
 }
 
-footer {
-    flex-shrink: 0;
-    min-height: 120px; /* O l'altezza che preferisci */
-    font-family: 'Grashrock', sans-serif;
-}
+
 
 /* ------------------ MENU ------------------ */
 #menu {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 24px; /* spazio tra le voci */
-    flex-direction: row; /* sempre in riga */
+    justify-content: flex-start; /* allinea il menu a sinistra */
+    align-items: flex-start;
+    text-align: left;
+    gap: 50px; /* spazio tra le voci */
 }
 
 #menu a {
-    background: none;
     border: none;
-    color: #000;
-    font-size: clamp(20px, 5vw, 50px);
+    color: #fff;      /* link del menu bianchi */
+    font-size: 50px; /* dimensione del font */
     font-family: 'Grashrock', sans-serif;
     cursor: pointer;
-    transition: transform 0.3s ease, color 0.3s ease;
+    transition: 
+        transform 0.2s cubic-bezier(0.4,0,0.2,1),
+        color 0.2s cubic-bezier(0.4,0,0.2,1);
     text-decoration: none;
-    padding: 10px 15px;
+    padding: 20px 15px;
     white-space: normal; /* Permette l'andata a capo */
 }
 
+/* Ingrandisce al passaggio del mouse */
 #menu a:hover,
 #menu a:focus {
-    color: #f47d00;
     transform: scale(1.2);
-    outline: none;
+    color: #ff8400;
 }
 
-/* Responsive menu */
-@media (max-width: 768px) {
+/* Colora di arancione quando attivo/cliccato */
+#menu a:active {
+    color: #ff8400;
+}
+
+/* Hamburger button base style */
+#hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    margin-left: 10px;
+}
+#hamburger span {
+    display: block;
+    width: 28px;
+    height: 4px;
+    margin: 4px 0;
+    background: #fff;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+/* Mobile styles */
+@media (max-width: 914px) {
+    #hamburger {
+        display: flex;
+    }
     #menu {
-        flex-direction: row; /* assicura che resti in riga anche su mobile */
-        gap: 1px; /* puoi ridurre lo spazio se serve */
+        position: absolute;
+        top: 60px; /* o l'altezza del tuo header */
+        left: 0;
+        right: 0;
+        background: #000;
+        flex-direction: column;
+        align-items: center;   /* centra le voci del menu */
+        justify-content: center; /* centra verticalmente se necessario */
+        gap: 0;
+        padding: 16px 0;
+        display: none;
+        z-index: 1000;
     }
-
+    #menu.open {
+        display: flex;
+    }
     #menu a {
-        width: 30%;
-        font-size: 24px;
+        width: 100%;
+        padding: 14px 24px;
+        color: #fff;
+        border-bottom: 1px solid #222;
+        text-align: center;    /* centra il testo delle voci */
+        font-size: larger;       /* riduci la dimensione del font su mobile */
     }
+    header {
+        min-height: 60px;
+    }
+    main {
+        padding: 0 0;
+    }
+    .info-container {
+        max-width: 98vw;
+        padding: 16px 6px 24px 6px;
+        font-size: 1rem;
+        margin: 0 1vw 24px 1vw;
+        border-radius: 10px;
+    }
+    .info-container h2 {
+        font-size: 1.5rem;
+        margin-top: 16px;
+        margin-bottom: 8px;
+    }
+    .info-container ul,
+    .info-container a {
+        margin-left: 10px;
+        font-size: 1rem;
+    }
+    .banner {
+        height: 70px;
+    }
+    .sponsor-slide img {
+        height: 60px;
+        margin: 0 10px;
+        padding-top: 5px;
+    }
+    footer {
+        height: auto;
+        padding: 0;
+    }
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 10px;
+        height: auto;
+        gap: 10px;
+    }
+    .footer-content p,
+    .copyright {
+        font-size: 1.1rem;
+        text-align: left;
+        padding: 6px 0;
+    }
+    .social-icons {
+        margin-top: 24px; /* aggiungi spazio sopra le icone social */
+    }
+    .social-icons a {
+        font-size: 1.5rem;
+        margin-right: 10px;
+    }
+}
 
-    body {
-        background-image: url('../assets/images/storiaInstaScura.JPG'); /* Sfondo diverso per mobile */
+/* Extra small devices */
+@media (max-width: 600px) {
+    #menu a {
+        font-size: 2rem; /* aumentato da 1.2rem a 2rem per mobile molto piccolo */
+        padding: 10px 8px;
+    }
+    .info-container {
+        max-width: 99vw;
+        font-size: 93rem;
+        padding: 10px 2px 16px 2px;
+    }
+    .banner {
+        height: 50px;
+    }
+    .sponsor-slide img {
+        height: 35px;
+        margin: 0 5px;
+    }
+    .footer-content {
+        padding: 0 4px;
+    }
+    .social-icons {
+        margin-top: 18px; /* spazio leggermente minore su schermi molto piccoli */
     }
 }
 
 /* ------------------ FOOTER ------------------ */
+
+
+footer {
+    display: flex;
+    flex-direction: column;
+    height: 220px; /* esempio: altezza totale del footer */
+    flex-shrink: 0; /* Impedisce al footer di ridursi */
+    position: relative; /* Cambia da static a relative per sicurezza */
+}
+
+footer .banner {
+    height: 100px; /* altezza fissa del banner */
+    flex-shrink: 0;
+}
+
+
 footer {
     background: rgb(0, 0, 0);
     color: #fff;
     text-align: center;
     padding: 0px 0;
-    position: static;
+    position: relative; /* Cambia da static a relative per sicurezza */
     width: 100%;
     z-index: 10;
 }
 
 .footer-content {
+    flex: 1 1 auto; /* occuperà tutto lo spazio rimanente */
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 30px;
-    height: 100%;
-    min-height: 120px;
+    width: 100%;
+    height: calc(100% - 100px); /* altezza footer meno banner */
+    font-family: 'Grashrock', Arial, sans-serif; /* font personalizzato */
 }
 
 .footer-content p {
@@ -119,45 +259,44 @@ footer {
     padding: 10px 0;
 }
 
-.social-icons {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 30px;
-    margin-bottom: 0; /* rimuovi il margin-bottom per allineamento verticale */
-}
-
 .social-icons a {
+    font-size: 2.4rem;
+    margin-right: 16px;
     color: #fff;
-    font-size: 2.2rem;
-    margin-right: 8px;
-    transition: transform 0.3s ease;
-    padding: 10px 0;
+    transition:
+        transform scale(1.2) 0.2s cubic-bezier(0.4,0,0.2,1),
+        color 0.2s cubic-bezier(0.4,0,0.2,1);
+    text-decoration: none; /* rimuove la sottolineatura */
+    display: inline-block; /* necessario per la trasformazione */
 }
 
-.social-icons a:hover {
-    transform: scale(1.8);
-}
-
-/* Focus visibile */
+.social-icons a:hover,
 .social-icons a:focus {
-    outline: 2px solid #f47d00;
-    border-radius: 4px;
+    transform: scale(1.2);
+}
+
+.social-icons a:active {
+    color: #f47d00;
 }
 
 .copyright {
-    font-family: 'Grashrock';
+    font-size: 1.5rem; /* credits più grandi */
     color: #fff;
-    font-size: 6px;
+    font-family: 'Grashrock', Arial, sans-serif;
     text-align: right;
 }
 
 /* ------------------ CAROSELLO SPONSOR ------------------ */
 .banner {
     height: 100px;
-    background: rgb(255, 255, 255);
+    background: #fff; /* sfondo bianco per contrasto */
     overflow: hidden;
-    position: relative;
+    width: 100%;
+    position: static; /* assicurati che sia nel flusso normale */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border-top: 1px solid #eee; opzionale per separazione */
 }
 
 .sponsor-slide {
@@ -175,8 +314,10 @@ footer {
 .sponsor-slide img {
     height: 95px;
     padding-top: 5px;
-    margin: 0 10px;
-    object-fit: contain;
+    margin-right: 35px;
+    background: #fff; /* sfondo bianco dietro ogni logo */
+    border-radius: 8px;
+    /* Se i loghi hanno trasparenza, il bianco li renderà visibili */
 }
 
 @keyframes scroll-left {
@@ -189,10 +330,10 @@ footer {
 }
 
 /* Mobile sponsor images */
-@media (max-width: 768px) {
+@media (max-width: 914px) {
     .sponsor-slide img {
         height: 90px;
-        margin: 0 15px;
+        margin: 0 20px;
         padding-top: 10px;
     }
 }
@@ -200,16 +341,15 @@ footer {
 /* ------------------ INFO CONTAINER ------------------ */
 .info-container {
     width: 100%;
-    max-width: 700px;
+    max-width: 1100px; /* aumentato per desktop */
     border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.100);
     padding: 24px 16px 32px 16px;
     font-size: 1.1rem;
     color: #da0606;
     margin: 0 auto 40px auto;
     font-family: 'Grashrock', Arial, sans-serif;
-    background: #fff;      /* Sfondo bianco opaco */
-    opacity: 0.8;            /* Completamente opaco */
+    margin-left: 0;        /* allinea il contenitore a sinistra */
+    text-align: left;      /* allinea il testo a sinistra */
 }
 
 .info-container h2 {
@@ -233,4 +373,33 @@ footer {
     margin-left: 20px;
     margin-bottom: 16px;
     color: #000000;
+    
+}
+
+footer .banner {
+    margin-bottom: 0; /* riduci spazio extra */
+
+    margin-bottom: 0; /* riduci spazio extra */
+}
+
+@media (max-width: 1200px) {
+    .info-container {
+        max-width: 900px;
+    }
+}
+@media (max-width: 914px) {
+    .info-container {
+        max-width: 98vw;
+        padding: 16px 6px 24px 6px;
+        font-size: 1rem;
+        margin: 0 1vw 24px 1vw;
+        border-radius: 10px;
+    }
+}
+@media (max-width: 600px) {
+    .info-container {
+        max-width: 99vw;
+        font-size: 0.95rem;
+        padding: 10px 2px 16px 2px;
+    }
 }

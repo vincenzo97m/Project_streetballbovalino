@@ -1,108 +1,87 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Iscrizione Squadra - Streetball Bovalino</title>
-    <link rel="stylesheet" href="../styles/style.css">
-    <style>
-        main {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 40px 10px 20px 10px;
-            min-height: 0;
-        }
-        h1 {
-            font-size: 2.2rem;
-            margin-bottom: 30px;
-            color: #000000;
-            text-align: center;
-        }
-        .form-container {
-            width: 100%;
-            max-width: 700px;
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-            padding: 24px 16px 32px 16px;
-        }
-        iframe {
-            width: 100%;
-            min-height: 800px;
-            border: none;
-            border-radius: 8px;
-            background: #fafafa;
-        }
-        @media (max-width: 800px) {
-            .form-container {
-                max-width: 100%;
-                padding: 8px 0 16px 0;
-            }
-            iframe {
-                min-height: 600px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iscrizione Gara da 3 - Streetball Bovalino</title>
+  <link rel="stylesheet" href="../styles/registration-style.css">
+  <link rel="stylesheet" href="../styles/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 </head>
+
 <body>
-    <div class="page-wrapper">
-        <header>
-            <!-- Puoi copiare il menu qui se vuoi -->
-        </header>
-        <main>
-            <h1>Iscrivi la tua squadra</h1>
-            <div class="form-container">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSchQhfRi5ytcy0EwPYDQh7nEcEZk0Oa7g9x3n_KHF1zW6ItGg/viewform?usp=sf_link" allowfullscreen>Caricamento…</iframe>
-            </div>
-        </main>
-        <footer>
-            <div class="footer-content">
-                <div class="banner">
-                    <div class="sponsor-slide">
-                        <div class="scroll-wrapper">
-                            <!-- Sponsor duplicati per scorrimento continuo -->
-                            <img src="assets/images/COMUNE.png" alt="Comune" />
-                            <img src="assets/images/1.png" alt="Sponsor 1" />
-                            <img src="assets/images/2.png" alt="Sponsor 2" />
-                            <img src="assets/images/3.png" alt="Sponsor 3" />
-                            <img src="assets/images/4.png" alt="Sponsor 4" />
-                            <img src="assets/images/5.png" alt="Sponsor 5" />
-                            <img src="assets/images/6.png" alt="Sponsor 6" />
-                            <img src="assets/images/7.png" alt="Sponsor 7" />
-                            <img src="assets/images/8.png" alt="Sponsor 8" />
-                            <img src="assets/images/9.png" alt="Sponsor 9" />
-                            <img src="assets/images/10.png" alt="Sponsor 10" />
-                            <img src="assets/images/FIP.png" alt="FIP" />
-                            <!-- Duplicati -->
-                            <img src="assets/images/COMUNE.png" alt="Comune" />
-                            <img src="assets/images/1.png" alt="Sponsor 1" />
-                            <img src="assets/images/2.png" alt="Sponsor 2" />
-                            <img src="assets/images/3.png" alt="Sponsor 3" />
-                            <img src="assets/images/4.png" alt="Sponsor 4" />
-                            <img src="assets/images/5.png" alt="Sponsor 5" />
-                            <img src="assets/images/6.png" alt="Sponsor 6" />
-                            <img src="assets/images/7.png" alt="Sponsor 7" />
-                            <img src="assets/images/8.png" alt="Sponsor 8" />
-                            <img src="assets/images/9.png" alt="Sponsor 9" />
-                            <img src="assets/images/10.png" alt="Sponsor 10" />
-                            <img src="assets/images/FIP.png" alt="FIP" />
-                        </div>
-                    </div>
-                </div>
-                <div class="social-icons">
-                    <a href="https://www.instagram.com/streetballbovalino/" target="_blank" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://www.facebook.com/streetballbovalino/" target="_blank" aria-label="Facebook">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                </div>
-                <div class="credits">
-                    <p>&copy; 2025 Streetball Bovalino.</p>
-                </div>
-            </div>
-        </footer>
-    </div>
+  <div class="page-wrapper">
+    <header>
+      <button id="hamburger" aria-label="Apri menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="menu" class="active">
+        <a href='team-registration.html'>Squadra</a>
+        <a href='three-point-registration.html'>Gara da 3</a>
+        <a href='calendar.html'>Calendario</a>
+        <a href='rankings.html'>Classifiche</a>
+      </nav>
+    </header>
+    <main>
+      <h1>Iscrizione Gara da 3 punti</h1>
+      <div class="form-container">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSfCI8NORutu0_oeBZXE2gJOR6fDMPh8XTjOc6BIUvAJqZuPbQ/viewform?usp=header"
+          allowfullscreen>Caricamento…</iframe>
+      </div>
+    </main>
+    <footer>
+      <div class="banner">
+        <div class="sponsor-slide">
+          <div class="scroll-wrapper">
+            <img src="../assets/images/COMUNE.png" alt="Comune" />
+            <img src="../assets/images/1.PNG" alt="Sponsor 1" />
+            <img src="../assets/images/2.png" alt="Sponsor 2" />
+            <img src="../assets/images/3.PNG" alt="Sponsor 3" />
+            <img src="../assets/images/4.PNG" alt="Sponsor 4" />
+            <img src="../assets/images/5.PNG" alt="Sponsor 5" />
+            <img src="../assets/images/6.PNG" alt="Sponsor 6" />
+            <img src="../assets/images/7.PNG" alt="Sponsor 7" />
+            <img src="../assets/images/8.PNG" alt="Sponsor 8" />
+            <img src="../assets/images/9.PNG" alt="Sponsor 9" />
+            <img src="../assets/images/10.PNG" alt="Sponsor 10" />
+            <img src="../assets/images/FIP.png" alt="FIP" />
+            <!-- Duplicati -->
+            <img src="../assets/images/COMUNE.png" alt="Comune" />
+            <img src="../assets/images/1.PNG" alt="Sponsor 1" />
+            <img src="../assets/images/2.png" alt="Sponsor 2" />
+            <img src="../assets/images/3.PNG" alt="Sponsor 3" />
+            <img src="../assets/images/4.PNG" alt="Sponsor 4" />
+            <img src="../assets/images/5.PNG" alt="Sponsor 5" />
+            <img src="../assets/images/6.PNG" alt="Sponsor 6" />
+            <img src="../assets/images/7.PNG" alt="Sponsor 7" />
+            <img src="../assets/images/8.PNG" alt="Sponsor 8" />
+            <img src="../assets/images/9.PNG" alt="Sponsor 9" />
+            <img src="../assets/images/10.PNG" alt="Sponsor 10" />
+            <img src="../assets/images/FIP.png" alt="FIP" />
+          </div>
+        </div>
+      </div>
+      <div class="footer-content">
+        <div class="social-icons">
+          <a href="https://www.instagram.com/streetballbovalino/" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/streetballbovalino/" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook"></i>
+          </a>
+        </div>
+        <div class="credits">
+          <p>&copy; 2025 Streetball Bovalino</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="../scripts/app.js"></script>
 </body>
+
 </html>
